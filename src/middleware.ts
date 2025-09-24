@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
 import { getToken } from 'next-auth/jwt';
+import { getTenantContext, validateTenantAccess } from './lib/tenant/tenant-context';
 
 // Rotas públicas que não precisam de autenticação
 const publicRoutes = [
@@ -13,7 +14,9 @@ const publicRoutes = [
   '/api/auth/providers',
   '/api/auth/callback',
   '/api/auth/signout',
-  '/api/auth/error'
+  '/api/auth/error',
+  '/select-tenant',
+  '/tenant-error'
 ];
 
 // Rotas que requerem role específico
@@ -27,16 +30,55 @@ const clientRoutes = [
   '/api/client'
 ];
 
+// Enterprise routes que precisam de contexto de tenant
+const enterpriseRoutes = [
+  '/enterprise',
+  '/admin',
+  '/api/tenant',
+  '/api/enterprise'
+];
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Permitir acesso a arquivos estáticos e _next
+  // Skip middleware for static files and specific API routes
   if (
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/static') ||
+    pathname.startsWith('/_next/') ||
+    pathname.startsWith('/api/auth/') ||
+    pathname.startsWith('/api/webhooks/') ||
+    pathname.startsWith('/favicon.ico') ||
+    pathname.startsWith('/images/') ||
+    pathname.startsWith('/api/health') ||
     pathname.includes('.') // arquivos com extensão (imagens, etc)
   ) {
     return NextResponse.next();
+  }
+
+  // Check if it's enterprise route - requires tenant context
+  const isEnterpriseRoute = enterpriseRoutes.some(route =>
+    pathname.startsWith(route)
+  );
+
+  if (isEnterpriseRoute) {
+    const tenantContext = await getTenantContext();
+
+    if (!tenantContext) {
+      return NextResponse.redirect(new URL('/select-tenant', request.url));
+    }
+
+    const validation = await validateTenantAccess(tenantContext);
+    if (!validation.isValid) {
+      return NextResponse.redirect(
+        new URL(`/tenant-error?reason=${validation.reason}`, request.url)
+      );
+    }
+
+    // Add tenant context to headers
+    const response = NextResponse.next();
+    response.headers.set('x-tenant-id', tenantContext.id);
+    response.headers.set('x-tenant-slug', tenantContext.slug);
+    response.headers.set('x-tenant-name', tenantContext.name);
+    return response;
   }
 
   // Verificar se é rota pública

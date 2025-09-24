@@ -21,11 +21,13 @@ import {
   Bell,
   User,
   Activity,
-  Scale
+  Scale,
+  Brain
 } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
 import { NotificationDropdown } from '@/components/NotificationDropdown';
+import { AIChat, AIChatTrigger } from '@/components/ai/AIChat';
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -37,6 +39,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const pathname = usePathname();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   // Menu items baseado no role do usuário
   const professionalMenuItems = [
@@ -48,6 +51,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     { icon: Target, label: 'Nutrição', href: '/dashboard/professional/nutrition' },
     { icon: Calendar, label: 'Agenda', href: '/dashboard/professional/schedule' },
     { icon: BarChart3, label: 'Relatórios', href: '/dashboard/professional/reports' },
+    { icon: Brain, label: 'IA Insights', href: '/dashboard/professional/ai-insights' },
     { icon: CreditCard, label: 'Financeiro', href: '/dashboard/professional/billing' },
     { icon: MessageCircle, label: 'Mensagens', href: '/dashboard/professional/messages' },
     { icon: Settings, label: 'Configurações', href: '/dashboard/professional/settings' },
@@ -294,6 +298,18 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           {children}
         </main>
       </div>
+
+      {/* AI Chat */}
+      {isChatOpen && (
+        <AIChat
+          isFloating={true}
+          onClose={() => setIsChatOpen(false)}
+        />
+      )}
+
+      {!isChatOpen && (
+        <AIChatTrigger onClick={() => setIsChatOpen(true)} />
+      )}
     </div>
   );
 }

@@ -84,7 +84,7 @@ export default function ProfessionalBillingPage() {
 
     setCheckoutLoading(planType);
     try {
-      const response = await fetch('/api/stripe/create-checkout', {
+      const response = await fetch('/api/stripe/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -98,8 +98,8 @@ export default function ProfessionalBillingPage() {
 
       const data = await response.json();
 
-      if (response.ok && data.checkoutUrl) {
-        window.location.href = data.checkoutUrl;
+      if (response.ok && data.url) {
+        window.location.href = data.url;
       } else {
         alert(data.error || 'Erro ao criar sessão de checkout');
       }

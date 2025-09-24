@@ -1,5 +1,6 @@
 import { Dumbbell, Users, Target, BarChart3, Star, Shield } from 'lucide-react';
 import { LogoWithText } from '@/components/Logo';
+import { CheckoutButton } from '@/components/ui/CheckoutButton';
 
 export default function Home() {
   return (
@@ -237,7 +238,9 @@ export default function Home() {
                   Suporte prioritário
                 </li>
               </ul>
-              <a href="/auth/signup" className="btn-primary w-full text-center">Teste 14 Dias Grátis</a>
+              <CheckoutButton planType="PROFESSIONAL" className="btn-primary w-full text-center">
+                Teste 14 Dias Grátis
+              </CheckoutButton>
             </div>
 
             {/* Enterprise Plan */}
@@ -265,7 +268,9 @@ export default function Home() {
                   Suporte dedicado
                 </li>
               </ul>
-              <button className="btn-outline w-full">Falar com Vendas</button>
+              <CheckoutButton planType="ENTERPRISE" className="btn-outline w-full">
+                Falar com Vendas
+              </CheckoutButton>
             </div>
           </div>
         </div>
