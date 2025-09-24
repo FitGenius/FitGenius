@@ -1,0 +1,47 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - img [ref=e7]
+      - generic [ref=e14]: FitGenius
+    - paragraph [ref=e15]: Plataforma Premium para Profissionais da Saúde
+  - generic [ref=e16]:
+    - generic [ref=e17]:
+      - heading "Entrar na sua conta" [level=3] [ref=e18]
+      - paragraph [ref=e19]: Acesse seu dashboard e gerencie seus clientes
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - generic [ref=e23]: Email
+          - generic [ref=e24]:
+            - img [ref=e25]
+            - textbox "Email" [ref=e28]
+        - generic [ref=e29]:
+          - generic [ref=e30]: Senha
+          - generic [ref=e31]:
+            - img [ref=e32]
+            - textbox "Senha" [ref=e35]
+            - button [ref=e36]:
+              - img [ref=e37]
+        - generic [ref=e40]:
+          - generic [ref=e41] [cursor=pointer]:
+            - checkbox "Lembrar de mim" [ref=e42]
+            - generic [ref=e43] [cursor=pointer]: Lembrar de mim
+          - link "Esqueceu a senha?" [ref=e44]:
+            - /url: /auth/forgot-password
+        - button "Entrar" [ref=e45]
+      - generic [ref=e50]: ou
+      - generic [ref=e51]:
+        - paragraph [ref=e52]: "Contas de demonstração:"
+        - generic [ref=e53]:
+          - button "👨‍⚕️ Profissional" [ref=e54]
+          - button "👤 Cliente" [ref=e55]
+      - paragraph [ref=e57]:
+        - text: Não tem uma conta?
+        - link "Cadastre-se gratuitamente" [ref=e58]:
+          - /url: /auth/signup
+  - link "← Voltar para a página inicial" [ref=e60]:
+    - /url: /
+```

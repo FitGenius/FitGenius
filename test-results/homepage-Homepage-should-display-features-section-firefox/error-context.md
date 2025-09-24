@@ -1,0 +1,145 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - navigation [ref=e5]:
+        - generic [ref=e6]:
+          - img [ref=e7]
+          - generic [ref=e14]: FitGenius
+        - generic [ref=e15]:
+          - link "Recursos" [ref=e16] [cursor=pointer]:
+            - /url: "#features"
+          - link "Preços" [ref=e17] [cursor=pointer]:
+            - /url: "#pricing"
+          - link "Contato" [ref=e18] [cursor=pointer]:
+            - /url: "#contact"
+        - generic [ref=e19]:
+          - link "Entrar" [ref=e20] [cursor=pointer]:
+            - /url: /auth/signin
+          - link "Começar Grátis" [ref=e21] [cursor=pointer]:
+            - /url: /auth/signup
+    - generic [ref=e24]:
+      - heading "A Plataforma Premium para Profissionais da Saúde" [level=2] [ref=e25]:
+        - text: A Plataforma
+        - generic [ref=e26]: Premium
+        - text: para
+        - text: Profissionais da Saúde
+      - paragraph [ref=e27]: Gerencie treinos, dietas e clientes com elegância. Uma solução completa para personal trainers, nutricionistas e profissionais do esporte.
+      - generic [ref=e28]:
+        - link "Teste Gratuito por 14 Dias" [ref=e29] [cursor=pointer]:
+          - /url: /auth/signup
+        - link "Ver Demonstração" [ref=e30] [cursor=pointer]:
+          - /url: /dashboard/professional
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - heading "Recursos Profissionais" [level=3] [ref=e34]:
+          - text: Recursos
+          - generic [ref=e35]: Profissionais
+        - paragraph [ref=e36]: Tudo que você precisa para oferecer o melhor atendimento aos seus clientes
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - img [ref=e40]
+          - heading "Prescrição de Treinos" [level=4] [ref=e46]
+          - paragraph [ref=e47]: Crie treinos personalizados com biblioteca de exercícios, vídeos e progressões automáticas.
+        - generic [ref=e48]:
+          - img [ref=e50]
+          - heading "Planos Nutricionais" [level=4] [ref=e54]
+          - paragraph [ref=e55]: Monte dietas completas com base TACO, cálculo automático de macros e listas de compras.
+        - generic [ref=e56]:
+          - img [ref=e58]
+          - heading "Gestão de Clientes" [level=4] [ref=e63]
+          - paragraph [ref=e64]: Acompanhe a evolução, avaliações físicas e comunicação direta com seus clientes.
+        - generic [ref=e65]:
+          - img [ref=e67]
+          - heading "Analytics Avançado" [level=4] [ref=e72]
+          - paragraph [ref=e73]: Relatórios detalhados de progresso, aderência e resultados dos seus clientes.
+        - generic [ref=e74]:
+          - img [ref=e76]
+          - heading "Conformidade LGPD" [level=4] [ref=e78]
+          - paragraph [ref=e79]: Segurança máxima para dados de saúde com criptografia e compliance total.
+        - generic [ref=e80]:
+          - img [ref=e82]
+          - heading "Gamificação" [level=4] [ref=e84]
+          - paragraph [ref=e85]: Sistema de conquistas e pontuação para motivar seus clientes na jornada.
+    - generic [ref=e88]:
+      - generic [ref=e89] [cursor=pointer]:
+        - generic [ref=e90] [cursor=pointer]: 10K+
+        - generic [ref=e91] [cursor=pointer]: Profissionais Ativos
+      - generic [ref=e92] [cursor=pointer]:
+        - generic [ref=e93] [cursor=pointer]: 50K+
+        - generic [ref=e94] [cursor=pointer]: Clientes Atendidos
+      - generic [ref=e95] [cursor=pointer]:
+        - generic [ref=e96] [cursor=pointer]: 1M+
+        - generic [ref=e97] [cursor=pointer]: Treinos Registrados
+      - generic [ref=e98] [cursor=pointer]:
+        - generic [ref=e99] [cursor=pointer]: 99.9%
+        - generic [ref=e100] [cursor=pointer]: Uptime Garantido
+    - generic [ref=e102]:
+      - generic [ref=e103]:
+        - heading "Planos Transparentes" [level=3] [ref=e104]:
+          - text: Planos
+          - generic [ref=e105]: Transparentes
+        - paragraph [ref=e106]: Escolha o plano ideal para seu negócio
+      - generic [ref=e107]:
+        - generic [ref=e108]:
+          - generic [ref=e109]:
+            - heading "Gratuito" [level=4] [ref=e110]
+            - generic [ref=e111]:
+              - text: R$ 0
+              - generic [ref=e112]: /mês
+            - paragraph [ref=e113]: Perfeito para começar
+          - list [ref=e114]:
+            - listitem [ref=e115]: Até 3 clientes ativos
+            - listitem [ref=e117]: Biblioteca básica de exercícios
+            - listitem [ref=e119]: Planos alimentares simples
+          - link "Começar Grátis" [ref=e121] [cursor=pointer]:
+            - /url: /auth/signup
+        - generic [ref=e122]:
+          - generic [ref=e124]: Mais Popular
+          - generic [ref=e125]:
+            - heading "Professional" [level=4] [ref=e126]
+            - generic [ref=e127]:
+              - text: R$ 97
+              - generic [ref=e128]: /mês
+            - paragraph [ref=e129]: Para profissionais sérios
+          - list [ref=e130]:
+            - listitem [ref=e131]: Clientes ilimitados
+            - listitem [ref=e133]: Biblioteca completa + vídeos
+            - listitem [ref=e135]: Analytics avançado
+            - listitem [ref=e137]: Controle financeiro
+            - listitem [ref=e139]: Suporte prioritário
+          - link "Teste 14 Dias Grátis" [ref=e141] [cursor=pointer]:
+            - /url: /auth/signup
+        - generic [ref=e142]:
+          - generic [ref=e143]:
+            - heading "Enterprise" [level=4] [ref=e144]
+            - generic [ref=e145]:
+              - text: R$ 197
+              - generic [ref=e146]: /mês
+            - paragraph [ref=e147]: Para grandes negócios
+          - list [ref=e148]:
+            - listitem [ref=e149]: Tudo do Professional
+            - listitem [ref=e151]: API personalizada
+            - listitem [ref=e153]: White label
+            - listitem [ref=e155]: Suporte dedicado
+          - button "Falar com Vendas" [ref=e157]
+    - generic [ref=e159]:
+      - heading "Pronto para Revolucionar seu Negócio?" [level=3] [ref=e160]:
+        - text: Pronto para
+        - generic [ref=e161]: Revolucionar
+        - text: seu Negócio?
+      - paragraph [ref=e162]: Junte-se a milhares de profissionais que já transformaram sua prática com o FitGenius.
+      - link "Começar Teste Gratuito Agora" [ref=e163] [cursor=pointer]:
+        - /url: /auth/signup
+    - contentinfo [ref=e164]:
+      - generic [ref=e165]:
+        - generic [ref=e166]:
+          - img [ref=e167]
+          - generic [ref=e173]: FitGenius
+        - generic [ref=e174]:
+          - paragraph [ref=e175]: © 2024 FitGenius. Todos os direitos reservados.
+          - paragraph [ref=e176]: Feito com ❤️ para profissionais da saúde no Brasil.
+  - alert [ref=e177]
+```
