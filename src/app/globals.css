@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+/* FitGenius Global Styles */
+
+/* CSS Variables for Theme */
+:root {
+  /* Dark Theme Colors */
+  --background: #0a0a0a;
+  --background-secondary: #111111;
+  --background-card: #1a1a1a;
+  --background-hover: #262626;
+
+  --foreground: #ffffff;
+  --foreground-secondary: #a3a3a3;
+  --foreground-muted: #737373;
+
+  --primary: #ffd700;
+  --primary-foreground: #000000;
+
+  --gold: #ffd700;
+  --gold-dark: #ccae00;
+
+  --border: #262626;
+  --border-subtle: #1a1a1a;
+
+  --accent-success: #22c55e;
+  --accent-warning: #f59e0b;
+  --accent-error: #ef4444;
+  --accent-info: #3b82f6;
+
+  /* Workout Colors */
+  --workout-strength: #dc2626;
+  --workout-cardio: #2563eb;
+  --workout-flexibility: #7c3aed;
+  --workout-rest: #6b7280;
+
+  /* Nutrition Colors */
+  --nutrition-protein: #dc2626;
+  --nutrition-carbs: #2563eb;
+  --nutrition-fats: #f59e0b;
+  --nutrition-calories: #ef4444;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-card: var(--background-card);
+  --color-background-hover: var(--background-hover);
+
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+
+  --color-primary: var(--primary);
+  --color-gold: var(--gold);
+  --color-gold-dark: var(--gold-dark);
+
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'Fira Code', monospace;
+}
+
+/* Base Styles */
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--gold) 50%, transparent);
+}
+
+/* Selection Styling */
+::selection {
+  background: color-mix(in srgb, var(--gold) 20%, transparent);
+  color: var(--foreground);
+}
+
+/* Focus Styles */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold) 50%, transparent);
+}
+
+/* Component Classes */
+.glass {
+  background: color-mix(in srgb, var(--background-card) 50%, transparent);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.glass-gold {
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--gold) 20%, transparent);
+}
+
+.gradient-text {
+  background: linear-gradient(to right, var(--gold), var(--primary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.card {
+  background: var(--background-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.8);
+}
+
+.card-gold {
+  background: var(--background-card);
+  border: 1px solid color-mix(in srgb, var(--gold) 20%, transparent);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px 0 rgba(255, 215, 0, 0.39);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: black;
+  box-shadow: 0 4px 14px 0 rgba(255, 215, 0, 0.39);
+}
+
+.btn-primary:hover {
+  background: var(--gold-dark);
+  box-shadow: 0 10px 25px -3px rgba(255, 215, 0, 0.3), 0 4px 6px -2px rgba(255, 215, 0, 0.05);
+}
+
+.btn-secondary {
+  background: var(--background-card);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--background-hover);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--foreground-secondary);
+}
+
+.btn-ghost:hover {
+  background: var(--background-hover);
+  color: var(--foreground);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+
+.btn-outline:hover {
+  background: var(--gold);
+  color: black;
+}
+
+.badge-gold {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  color: var(--gold);
+  border: 1px solid color-mix(in srgb, var(--gold) 20%, transparent);
+}
+
+.metric-card {
+  background: var(--background-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.8);
+  padding: 24px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.metric-card:hover {
+  border-color: color-mix(in srgb, var(--gold) 20%, transparent);
+  box-shadow: 0 10px 25px -3px rgba(255, 215, 0, 0.3), 0 4px 6px -2px rgba(255, 215, 0, 0.05);
+}
