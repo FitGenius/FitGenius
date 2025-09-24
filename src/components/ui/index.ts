@@ -14,3 +14,5 @@ export {
   SelectScrollUpButton,
   SelectScrollDownButton,
 } from "./select";
+export { Tabs, TabsList, TabsTrigger, TabsContent } from "./tabs";
+export { Avatar, AvatarImage, AvatarFallback } from "./avatar";

@@ -1,0 +1,73 @@
+{
+  "expo": {
+    "name": "FitGenius",
+    "slug": "fitgenius-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.fitgenius.app",
+      "infoPlist": {
+        "NSHealthShareUsageDescription": "Este app precisa acessar dados de saúde para tracking de fitness",
+        "NSHealthUpdateUsageDescription": "Este app precisa salvar dados de treino no Apple Health",
+        "NSLocationWhenInUseUsageDescription": "Localização usada para encontrar academias próximas",
+        "NSMotionUsageDescription": "Dados de movimento para contagem de passos",
+        "NSCameraUsageDescription": "Câmera usada para análise de exercícios",
+        "NSMicrophoneUsageDescription": "Microfone para comandos de voz durante treinos"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#000000"
+      },
+      "package": "com.fitgenius.app",
+      "permissions": [
+        "android.permission.ACTIVITY_RECOGNITION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.VIBRATE",
+        "com.google.android.gms.permission.ACTIVITY_RECOGNITION"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-location",
+      "expo-camera",
+      "expo-av",
+      "expo-notifications",
+      [
+        "expo-background-fetch",
+        {
+          "backgroundModes": ["background-fetch"]
+        }
+      ],
+      [
+        "expo-task-manager",
+        {
+          "backgroundModes": ["background-processing"]
+        }
+      ]
+    ],
+    "extra": {
+      "apiUrl": "https://api.fitgenius.com",
+      "eas": {
+        "projectId": "your-project-id-here"
+      }
+    }
+  }
+}

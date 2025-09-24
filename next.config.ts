@@ -126,9 +126,10 @@ const nextConfig: NextConfig = {
   output: 'standalone',
 
   experimental: {
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
-    serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs']
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons']
   },
+
+  serverExternalPackages: ['@prisma/client', 'bcryptjs'],
 
   images: {
     remotePatterns: [

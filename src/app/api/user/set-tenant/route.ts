@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '../../auth/[...nextauth]/options';
+import { authOptions } from '@/lib/auth';
 import { z } from 'zod';
 
 const setTenantSchema = z.object({
