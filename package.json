@@ -27,7 +27,11 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:e2e": "playwright test",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "deploy": "bash scripts/deploy.sh",
+    "deploy:quick": "bash scripts/quick-deploy.sh",
+    "postbuild": "prisma generate",
+    "vercel-build": "prisma generate && npm run build"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.10.0",

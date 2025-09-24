@@ -1,7 +1,7 @@
 {
   "name": "fitgenius",
   "version": 2,
-  "buildCommand": "npm run build",
+  "buildCommand": "prisma generate && npm run build",
   "devCommand": "npm run dev",
   "installCommand": "npm ci",
   "framework": "nextjs",
