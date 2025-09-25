@@ -1,11 +1,31 @@
 import { prisma } from '@/lib/prisma';
-import { canPerformAction, getPlanByType } from '@/lib/stripe';
+// import { canPerformAction, getPlanByType } from '@/lib/stripe';
 
 interface UsageData {
   clientsCount: number;
   workoutsCount: number;
   messagesCount: number;
   assessmentsCount: number;
+}
+
+// Temporary plan configuration until Stripe is properly configured
+function getPlanByType(plan: 'FREE' | 'PROFESSIONAL' | 'ENTERPRISE') {
+  const plans = {
+    FREE: {
+      name: 'Free',
+      maxClients: 5,
+    },
+    PROFESSIONAL: {
+      name: 'Professional',
+      maxClients: null, // unlimited
+    },
+    ENTERPRISE: {
+      name: 'Enterprise',
+      maxClients: null, // unlimited
+    }
+  };
+
+  return plans[plan] || plans.FREE;
 }
 
 export async function getUserPlanAndUsage(userId: string) {
