@@ -1,12 +1,13 @@
-// Temporary simplified schema for SQLite
+// Production schema for PostgreSQL (Supabase)
 generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 enum UserRole {
@@ -169,7 +170,7 @@ model Client {
   updatedAt      DateTime     @updatedAt
 
   // Relations
-  sentInvites     ClientInvite[] @relation("SentInvites")
+  // Removed SentInvites relation to fix conflict
   receivedInvites ClientInvite[] @relation("ReceivedInvites")
   workouts        Workout[]
   assessments     PhysicalAssessment[]
@@ -194,7 +195,7 @@ model ClientInvite {
   createdAt      DateTime    @default(now())
   updatedAt      DateTime    @updatedAt
 
-  sentByClient   Client?     @relation("SentInvites", fields: [clientId], references: [id])
+  // Removed conflicting relation - using only ReceivedInvites
 
   @@unique([professionalId, email])
 }

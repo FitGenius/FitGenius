@@ -1,33 +1,20 @@
 {
-  "name": "fitgenius",
   "version": 2,
-  "buildCommand": "prisma generate && npm run build",
-  "devCommand": "npm run dev",
-  "installCommand": "npm ci",
   "framework": "nextjs",
-  "regions": ["gru1", "iad1"],
-  "functions": {
-    "app/api/**/*.ts": {
-      "runtime": "nodejs18.x",
-      "maxDuration": 30
+  "regions": [
+    "gru1"
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "build": {
+    "env": {
+      "NEXT_TELEMETRY_DISABLED": "1"
     }
   },
-  "crons": [
-    {
-      "path": "/api/crons/backup",
-      "schedule": "0 2 * * *"
-    },
-    {
-      "path": "/api/crons/cleanup",
-      "schedule": "0 3 * * 0"
-    },
-    {
-      "path": "/api/crons/notifications",
-      "schedule": "0 9 * * *"
+  "functions": {
+    "app/api/**/*.js": {
+      "maxDuration": 30
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
   },
   "headers": [
     {
@@ -40,82 +27,8 @@
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
         }
       ]
-    },
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "https://fitgenius.app"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type, Authorization, X-Requested-With"
-        }
-      ]
-    },
-    {
-      "source": "/_next/static/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/sw.js",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
-        }
-      ]
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/dashboard",
-      "destination": "/dashboard/professional",
-      "permanent": false
-    },
-    {
-      "source": "/login",
-      "destination": "/auth/signin",
-      "permanent": true
-    },
-    {
-      "source": "/register",
-      "destination": "/auth/signup",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/sitemap.xml",
-      "destination": "/api/sitemap"
-    },
-    {
-      "source": "/robots.txt",
-      "destination": "/api/robots"
-    },
-    {
-      "source": "/health",
-      "destination": "/api/health"
     }
   ]
 }

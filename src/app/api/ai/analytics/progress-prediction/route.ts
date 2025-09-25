@@ -117,12 +117,12 @@ export async function GET(request: NextRequest) {
   }
 }
 
-async function generateProgressInsights(client: any, predictions: any) {
+async function generateProgressInsights(client: unknown, predictions: unknown) {
   const assessments = client.physicalAssessments;
 
   // Calculate current trends
-  const weightTrend = calculateTrend(assessments.slice(0, 5).map((a: any) => a.weight).filter(Boolean));
-  const bodyFatTrend = calculateTrend(assessments.slice(0, 5).map((a: any) => a.bodyFat).filter(Boolean));
+  const weightTrend = calculateTrend(assessments.slice(0, 5).map((a: unknown) => a.weight).filter(Boolean));
+  const bodyFatTrend = calculateTrend(assessments.slice(0, 5).map((a: unknown) => a.bodyFat).filter(Boolean));
 
   const insights = [];
 
